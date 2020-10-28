@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+html {
+    overflow: hidden;
+}
+
+body {
+    background-color: rgb(217, 159, 231);
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: auto;
+}
+
+.motto {
+    text-align: center;
+    font-size: 0.65rem;
+    margin-top: 2rem;
+}
+
+.content {
+    position: relative;
+    width: 340px;
+    margin: 1rem;
+}
+
+.piechart {
+    margin: auto;
+    margin-top: 2rem;
+    display: block;
+    position: relative;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    background-image: conic-gradient( #FFF9E4 83deg, #FCCFCF 17deg);
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+}
+
+
+/* Modal Content */
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 80px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid black;
+    width: 80%;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    font-weight: 700;
+    background-color: #F9BFDD;
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 32px;
+    box-shadow: 3px 3px black;
+    margin-top: 2rem;
+}
+
+#calculate {
+    font-weight: 700;
+    background-color: #F9BFDD;
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 16px;
+    box-shadow: 3px 3px black;
+    margin-top: 1rem;
+}
+
+.options {
+    font-weight: 700;
+    background-color: rgb(250, 241, 210);
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 8px;
+    box-shadow: 3px 3px black;
+    margin-top: 2rem;
+    display: inline-block;
+    justify-content: center;
+}
+
+input {
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 32px;
+    box-shadow: 3px 3px black;
+    margin-top: 2rem;
+}
+
+label {
+    width: 100%;
+}
+
+#output {
+    margin-top: 8px;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.percentage {
+    font-size: 52px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+@media only screen and (orientation:portrait) {
+    body {
+        background: #DFF5F5;
+    }
+    /* #output:after {
+        content: 'start by entering your birthdate and life expectancy to view your life in pie stats';
+    } */
+}
+
+@media only screen and (orientation:landscape) {
+    body {
+        background-color: #DFF5F5;
+    }
+    /* #output:after {
+        content: 'make your life sweet. live each moment to the fullest.';
+    } */
+}
+
+
+}
+@-webkit-keyframes bounce-top {
+    0% {
+        -webkit-transform: translateY(-45px);
+        transform: translateY(-45px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    
+    24% {
+        opacity: 1;
+    }
+    
+    40% {
+        -webkit-transform: translateY(-24px);
+        transform: translateY(-24px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    65% {
+        -webkit-transform: translateY(-12px);
+        transform: translateY(-12px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    82% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    93% {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    25%,
+    55%,
+    75%,
+    87% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+    
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+}
+@keyframes bounce-top {
+    0% {
+        -webkit-transform: translateY(-45px);
+        transform: translateY(-45px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    
+    24% {
+        opacity: 1;
+    }
+    
+    40% {
+        -webkit-transform: translateY(-24px);
+        transform: translateY(-24px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    65% {
+        -webkit-transform: translateY(-12px);
+        transform: translateY(-12px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    82% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    93% {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    25%,
+    55%,
+    75%,
+    87% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+    
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+}
