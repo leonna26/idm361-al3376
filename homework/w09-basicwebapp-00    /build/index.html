@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+
+<head>
+    <title>Life in Pie</title>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- make the status bar black -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- make the app title different from the web page title -->
+    <meta name="apple-mobile-web-app-title" content="Life in Pie">
+    <!-- disable auto phone number detection -->
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css-normalize.css">
+    <link rel="stylesheet" href="css-add2home.css">
+    <link rel="stylesheet" href="css-main.css">
+
+
+    <!-- IPHONES -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icon-57x57.png">
+
+    <!-- OR use one generic renamed 180x180 png icon to rule them all -->
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+
+</head>
+
+<body>
+
+
+    <div id="content">
+        <!-- PAGE CONTENT -->
+        <div class="status">
+        </div>
+        <div id="day-modal">
+            <div class="percentage">17%</div>
+            <h1 class="title">my day in pie</h1>
+            <div class="piechart"></div>
+        </div>
+        <div id="month-modal">
+            <div class="percentage">17%</div>
+            <h1 class="title">my month in pie</h1>
+            <div class="piechart"></div>
+        </div>
+        <div id="year-modal">
+            <div class="percentage">17%</div>
+            <h1 class="title">my year in pie</h1>
+            <div class="piechart"></div>
+        </div>
+        <div id="life-modal">
+            <div class="percentage">17%</div>
+            <h1 class="title">my life in pie</h1>
+            <div class="piechart"></div>
+        </div>
+        <div class="buttons">
+            <button id="day"><div class="day">day</div></button>
+            <button id="month"><div class="month">month</div></button>
+            <button id="year"><div class="year">year</div></button>
+            <button id="life"><div class="life">life</div></button>
+        </div>
+        <div class="pieme">
+            <button id="calculate">pie me</button>
+        </div>
+        <!-- Trigger/Open The Modal -->
+
+        <p class="motto">make your life sweet. live each moment to the fullest.</p>
+    </div>
+    <!-- The Modal -->
+    <div id="modal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="modtitle">my life in pie</h1>
+            <p class="moddesc">enter your birthdate and life expectancy to view your pie stats</p>
+            <div class="field">
+                <label for="birthday">when is your birthday?</label>
+                <input type="date" id="birthday" name="birthday">
+            </div>
+            <div class="field">
+                <label for="quantity">what's your life expectancy?</label>
+                <input type="number" id="quantity" name="quantity">
+            </div>
+            <button type="button" id="save">save</button> </div>
+
+    </div>
+
+    <div class="landscape">
+        <div class="status">
+        </div>
+        <h2 class="header">my life in pie</h2>
+        <div class="pies">
+            <div class="piechart1">
+                <div class="smpercentage">17%</div>
+                <div class="time">day</div>
+
+
+            </div>
+            <div class="piechart2">
+                <div class="smpercentage">45%</div>
+                <div class="time">month</div>
+
+            </div>
+            <div class="piechart3">
+                <div class="smpercentage">83%</div>
+                <div class="time">year</div>
+
+            </div>
+            <div class="piechart4">
+                <div class="smpercentage">26%</div>
+                <div class="time">life</div>
+
+            </div>
+        </div>
+
+        <p class="footer">make your life sweet. live each moment to the fullest.</p>
+    </div>
+
+
+    <!-- JAVASCRIPT-->
+    <script type="text/javascript">
+        // Custom config settings BEFORE loading add2home.js file
+        var addToHomeConfig = {
+            touchIcon: true
+        };
+    </script>
+    <script src="js-add2home.js"></script>
+    <script src="js-main.js"></script>
+</body>
+
+</html>

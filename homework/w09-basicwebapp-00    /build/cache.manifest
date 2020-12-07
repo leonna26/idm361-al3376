@@ -1,0 +1,28 @@
+CACHE MANIFEST
+# version - 6.0
+
+CACHE:
+
+# CSS
+css-normalize.css
+css-add2home.css
+css-main.css
+
+
+# IMAGES
+img/apple-touch-icon.png
+img/icon-57x57.png
+img/icon-114x114.png
+img/icon-180x180.png
+
+# HTML FILES
+index.html
+
+# JAVASCRIPT - SPECIFIC ORDER
+js-refresh-manifest.js
+js-main.js
+js-add2home.js
+
+## Any resources not listed above will require the user to be online.
+NETWORK:
+*

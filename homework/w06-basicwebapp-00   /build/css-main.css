@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #DFF5F5;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: auto;
+}
+
+.header {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+.motto {
+    text-align: center;
+    font-size: 0.65rem;
+    margin-top: 1.6rem;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.65rem;
+    margin-top: 14rem;
+    width: 100%;
+}
+
+.content {
+    max-width: 480px;
+    margin: 1em;
+    /* max-width center div */
+    height: 100vh;
+    width: 100%;
+}
+
+.piechart {
+    margin: auto;
+    margin-top: 2rem;
+    display: block;
+    position: relative;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    background-image: conic-gradient( #FFF9E4 83deg, #FCCFCF 17deg);
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+}
+
+.piechart1 {
+    margin: auto;
+    margin-top: 2rem;
+    margin-left: 2.7rem;
+    margin-right: 0.5rem;
+    display: block;
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-image: conic-gradient( #FCCFCF 83deg, #FFF9E4 17deg);
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+    float: left;
+}
+
+.piechart2 {
+    margin: auto;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: block;
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-image: conic-gradient(#FFF9E4 45deg, #C7E7D4 55deg);
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+    float: left;
+}
+
+.piechart3 {
+    margin: auto;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: block;
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-image: conic-gradient( #FFF9E4 83deg, #D9C7E7 17deg);
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+    float: left;
+}
+
+.piechart4 {
+    margin: auto;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    display: block;
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-image: conic-gradient( #FADDBA 26deg, #FFF9E4 74deg);
+    border: 3px solid black;
+    box-shadow: 3px 3px black;
+    float: left;
+}
+
+.pies {
+    margin-top: 0.4rem;
+}
+
+
+/* Modal Content */
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 60px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 3px 3px black;
+    width: 80%;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: #000000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    font-weight: 700;
+    background-color: #F9BFDD;
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 32px;
+    box-shadow: 3px 3px black;
+    margin-top: 2rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pieme {
+    margin-left: 7rem;
+    margin-right: 6.5rem;
+    margin-top: 1.2rem;
+    display: block;
+}
+
+.save {
+    font-weight: 700;
+    background-color: #F9BFDD;
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 32px;
+    box-shadow: 3px 3px black;
+    margin-left: 4rem;
+    margin-bottom: 1.2rem;
+}
+
+#calculate {
+    font-weight: 700;
+    background-color: #F9BFDD;
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 16px;
+    box-shadow: 3px 3px black;
+    margin-top: 1rem;
+}
+
+.options {
+    font-weight: 700;
+    background-color: rgb(250, 241, 210);
+    border-color: black;
+    border-radius: 12px;
+    padding: 6px 10px;
+    box-shadow: 3px 3px black;
+    margin: 2px;
+    margin-top: 2rem;
+    display: inline-block;
+    justify-content: center;
+}
+
+.active {
+    font-weight: 700;
+    background-color: #FCCFCF;
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 8px;
+    box-shadow: 3px 3px black;
+    margin-top: 2rem;
+    display: inline-block;
+    justify-content: center;
+}
+
+input {
+    border-color: black;
+    border-radius: 12px;
+    padding: 4px 32px;
+    box-shadow: 3px 3px black;
+    margin-top: 0.6rem;
+    margin-bottom: 1.2rem;
+    width: 60%;
+}
+
+label {
+    width: 100%;
+}
+
+#output {
+    margin-top: 8px;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.percentage {
+    font-size: 52px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
+.smpercentage {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.time {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 5rem;
+}
+
+@media only screen and (orientation:portrait) {
+    body {
+        background: #DFF5F5;
+    }
+    .landscape {
+        display: none;
+    }
+    /* #output:after {
+        content: 'start by entering your birthdate and life expectancy to view your life in pie stats';
+    } */
+}
+
+@media only screen and (orientation:landscape) {
+    #content {
+        display: none;
+    }
+    /* #output:after {
+        content: 'make your life sweet. live each moment to the fullest.';
+    } */
+}
+
+
+}
+@-webkit-keyframes bounce-top {
+    0% {
+        -webkit-transform: translateY(-45px);
+        transform: translateY(-45px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    
+    24% {
+        opacity: 1;
+    }
+    
+    40% {
+        -webkit-transform: translateY(-24px);
+        transform: translateY(-24px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    65% {
+        -webkit-transform: translateY(-12px);
+        transform: translateY(-12px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    82% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    93% {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    25%,
+    55%,
+    75%,
+    87% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+    
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+}
+@keyframes bounce-top {
+    0% {
+        -webkit-transform: translateY(-45px);
+        transform: translateY(-45px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    
+    24% {
+        opacity: 1;
+    }
+    
+    40% {
+        -webkit-transform: translateY(-24px);
+        transform: translateY(-24px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    65% {
+        -webkit-transform: translateY(-12px);
+        transform: translateY(-12px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    82% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    93% {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+    }
+    
+    25%,
+    55%,
+    75%,
+    87% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+    
+    100% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+}
