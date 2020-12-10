@@ -249,6 +249,7 @@ var lifePercentage = document.getElementById('life-percentage');
 var lifeProgressBar = document.getElementById('life-progress-bar');
 var ageInput = document.getElementById('age');
 var monthPercentage = document.getElementById('month-percentage');
+var lifeExpectancy = document.getElementById('quantity');
 
 function getDayOfTheYear() {
     var now = new Date();
@@ -296,9 +297,10 @@ function getMonthPercentage() {
 }
 
 function getLifePercentage() {
-    var averageLifeExpectancy = getQuantity;
+    console.log("life percentage called");
+    var lifeExpectancy = getLifeExpectancy();
     var secondsInAYear = 60 * 60 * 24 * getDaysOfAYear();
-    var secondsInAverageLife = secondsInAYear * averageLifeExpectancy;
+    var secondsInAverageLife = secondsInAYear * lifeExpectancy;
     var secondsInYourLife = secondsInAYear * ageInput.value;
     console.log(secondsInYourLife);
     return (secondsInYourLife / secondsInAverageLife) * 100;
@@ -312,8 +314,8 @@ function render() {
     // dayProgressBar.value = Math.floor(getDayPercentage());
     monthPercentage.innerHTML = '' + getMonthPercentage().toFixed(0) + '%';
 
-    /*     lifePercentage.innerHTML = '' + getLifePercentage().toFixed(0) + '%';
-     */ // lifeProgressBar.value = Math.floor(getLifePercentage());
+    lifePercentage.innerHTML = '' + getLifePercentage().toFixed(0) + '%';
+    //  */ // lifeProgressBar.value = Math.floor(getLifePercentage());
 }
 
 function getDaysInMonth(month, year) {
