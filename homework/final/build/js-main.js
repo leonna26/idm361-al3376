@@ -298,13 +298,13 @@ function getMonthPercentage() {
 
 function getLifePercentage() {
     console.log("life percentage called");
-    var lifeExpectancy = getLifeExpectancy();
     var secondsInAYear = 60 * 60 * 24 * getDaysOfAYear();
-    var secondsInAverageLife = secondsInAYear * lifeExpectancy;
+    var secondsInAverageLife = secondsInAYear * lifeExpectancy.value;
     var secondsInYourLife = secondsInAYear * ageInput.value;
     console.log(secondsInYourLife);
     return (secondsInYourLife / secondsInAverageLife) * 100;
 }
+
 
 function render() {
     yearPercentage.innerHTML = '' + getYearPercentage().toFixed(0) + '%';
@@ -317,6 +317,88 @@ function render() {
     lifePercentage.innerHTML = '' + getLifePercentage().toFixed(0) + '%';
     //  */ // lifeProgressBar.value = Math.floor(getLifePercentage());
 }
+
+
+var yearPercentageLandscape = document.getElementById('year-percentage-landscape');
+var progressBarLandscape = document.getElementById('year-progress-bar-landscape');
+var dayPercentageLandscape = document.getElementById('day-percentage-landscape');
+var dayProgressBarLandscape = document.getElementById('day-progress-bar-landscape');
+var lifePercentageLandscape = document.getElementById('life-percentage-landscape');
+var lifeProgressBarLandscape = document.getElementById('life-progress-bar-landscape');
+var ageInputLandscape = document.getElementById('age-landscape');
+var monthPercentageLandscape = document.getElementById('month-percentage-landscape');
+var lifeExpectancyLandscape = document.getElementById('quantity-landscape');
+
+function getDayOfTheYearLandscape() {
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+    var oneDay = 1000 * 60 * 60 * 24;
+    var day = Math.floor(diff / oneDay);
+    return day;
+}
+
+function getDaysOfAYearLandscape() {
+    var today = new Date();
+    var year = today.getFullYear();
+    var isLeapYear = year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
+    return isLeapYear ? 366 : 365;
+}
+
+function getYearPercentageLandscape() {
+    return (getDayOfTheYearLandscape() / getDaysOfAYearLandscape()) * 100;
+}
+
+function getSecondsOfCurrentDayLandscape() {
+    var date = new Date();
+    var secs = date.getSeconds() + (60 * (date.getMinutes() + (60 * date.getHours())));
+    return secs;
+}
+
+function getSecondsInADayLandscape() {
+    return 60 * 60 * 24;
+}
+
+function getDayPercentageLandscape() {
+    return (getSecondsOfCurrentDay() / getSecondsInADay()) * 100;
+}
+
+function getMonthPercentageLandscape() {
+    console.log("month percentage called");
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var dayOfMonth = date.getDate();
+    var numberOfDaysInMonth = getDaysInMonth(month, year);
+    var percentageOfMonth = (dayOfMonth / numberOfDaysInMonth) * 100;
+    return (percentageOfMonth);
+}
+
+function getLifePercentageLandscape() {
+    console.log("life percentage called");
+    var secondsInAYear = 60 * 60 * 24 * getDaysOfAYear();
+    var secondsInAverageLife = secondsInAYear * lifeExpectancy.value;
+    var secondsInYourLife = secondsInAYear * ageInput.value;
+    console.log(secondsInYourLife);
+    return (secondsInYourLife / secondsInAverageLife) * 100;
+}
+
+
+function render() {
+    yearPercentageLandscape.innerHTML = '' + getYearPercentageLandscape().toFixed(0) + '%';
+    //  */ // progressBar.value = Math.floor(getYearPercentage());
+
+    dayPercentageLandscape.innerHTML = '' + getDayPercentageLandscape().toFixed(0) + '%';
+    // dayProgressBar.value = Math.floor(getDayPercentage());
+    monthPercentageLandscape.innerHTML = '' + getMonthPercentageLandscape().toFixed(0) + '%';
+
+    lifePercentageLandscape.innerHTML = '' + getLifePercentageLandscape().toFixed(0) + '%';
+    //  */ // lifeProgressBar.value = Math.floor(getLifePercentage());
+}
+
+
+
+
 
 function getDaysInMonth(month, year) {
     // Here January is 1 based
