@@ -49,25 +49,25 @@ dayButton.addEventListener("click", () => {
     offActive();
     isActive(dayButton);
     modalOn(dayModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 monthButton.addEventListener("click", () => {
     offActive();
     isActive(monthButton);
     modalOn(monthModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 yearButton.addEventListener("click", () => {
     offActive();
     isActive(yearButton);
     modalOn(yearModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 lifeButton.addEventListener("click", () => {
     offActive();
     isActive(lifeButton);
     modalOn(lifeModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 
 // modal and active off
@@ -88,25 +88,25 @@ dayButton.addEventListener("click", () => {
     offActive();
     isActive(dayButton);
     modalOn(dayModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 monthButton.addEventListener("click", () => {
     offActive();
     isActive(monthButton);
     modalOn(monthModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 yearButton.addEventListener("click", () => {
     offActive();
     isActive(yearButton);
     modalOn(yearModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 lifeButton.addEventListener("click", () => {
     offActive();
     isActive(lifeButton);
     modalOn(lifeModal);
-    addDisplay();
+    // addDisplay();
 }, false);
 
 // modal and active off
@@ -248,6 +248,7 @@ var dayProgressBar = document.getElementById('day-progress-bar');
 var lifePercentage = document.getElementById('life-percentage');
 var lifeProgressBar = document.getElementById('life-progress-bar');
 var ageInput = document.getElementById('age');
+var monthPercentage = document.getElementById('month-percentage');
 
 function getDayOfTheYear() {
     var now = new Date();
@@ -283,8 +284,19 @@ function getDayPercentage() {
     return (getSecondsOfCurrentDay() / getSecondsInADay()) * 100;
 }
 
+function getMonthPercentage() {
+    console.log("month percentage called");
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var dayOfMonth = date.getDate();
+    var numberOfDaysInMonth = getDaysInMonth(month, year);
+    var percentageOfMonth = (dayOfMonth / numberOfDaysInMonth) * 100;
+    return (percentageOfMonth);
+}
+
 function getLifePercentage() {
-    var averageLifeExpectancy = 72;
+    var averageLifeExpectancy = getQuantity;
     var secondsInAYear = 60 * 60 * 24 * getDaysOfAYear();
     var secondsInAverageLife = secondsInAYear * averageLifeExpectancy;
     var secondsInYourLife = secondsInAYear * ageInput.value;
@@ -294,14 +306,25 @@ function getLifePercentage() {
 
 function render() {
     yearPercentage.innerHTML = '' + getYearPercentage().toFixed(0) + '%';
-    progressBar.value = Math.floor(getYearPercentage());
+    //  */ // progressBar.value = Math.floor(getYearPercentage());
 
     dayPercentage.innerHTML = '' + getDayPercentage().toFixed(0) + '%';
-    dayProgressBar.value = Math.floor(getDayPercentage());
+    // dayProgressBar.value = Math.floor(getDayPercentage());
+    monthPercentage.innerHTML = '' + getMonthPercentage().toFixed(0) + '%';
 
-    lifePercentage.innerHTML = '' + getLifePercentage().toFixed(0) + '%';
-    lifeProgressBar.value = Math.floor(getLifePercentage());
+    /*     lifePercentage.innerHTML = '' + getLifePercentage().toFixed(0) + '%';
+     */ // lifeProgressBar.value = Math.floor(getLifePercentage());
 }
+
+function getDaysInMonth(month, year) {
+    // Here January is 1 based
+    //Day 0 is the last day in the previous month
+    return new Date(year, month, 0).getDate();
+    // Here January is 0 based
+    // return new Date(year, month+1, 0).getDate();
+};
+
+
 
 function start() {
     setInterval(function() { render(); }, 1000);

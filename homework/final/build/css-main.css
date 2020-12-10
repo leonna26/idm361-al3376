@@ -302,7 +302,7 @@ button {
     background-color: rgb(250, 241, 210);
     border-color: black;
     border-radius: 12px;
-    padding: 6px 10px;
+    padding: 2px 14px;
     box-shadow: 3px 3px black;
     margin: 2px;
     margin-top: 2rem;
@@ -419,7 +419,7 @@ label {
         margin-right: 1rem;
     }
     .active {
-        padding: 2px 8px;
+        padding: 2px 14px;
     }
     #save {
         margin-top: 8rem;
@@ -514,9 +514,13 @@ label {
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
     .motto {
-        font-size: 14px;
+        font-size: 16px;
+        margin-top: 8rem;
     }
     #save {
+        margin-top: 4rem;
+    }
+    .pieme {
         margin-top: 4rem;
     }
 }
