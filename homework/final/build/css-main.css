@@ -62,7 +62,7 @@ p {
 .footer {
     text-align: center;
     font-size: 0.65rem;
-    margin-top: 6rem;
+    margin-top: 2rem;
     width: 100%;
 }
 
@@ -274,7 +274,7 @@ button {
     transform: translate(-50%, -50%);
     margin: 0;
     position: absolute;
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 
 #calculate {
@@ -365,6 +365,16 @@ label {
     margin-top: 1.2rem;
 }
 
+#day-percentage-landscape,
+#month-percentage-landscape,
+#year-percentage-landscape,
+#life-percentage-landscape {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1.2rem;
+}
+
 .smpercentage {
     font-size: 24px;
     font-weight: 700;
@@ -374,7 +384,6 @@ label {
 .time {
     text-align: center;
     font-size: 18px;
-    margin-top: 5rem;
 }
 
 svg {
@@ -429,7 +438,7 @@ svg {
         padding: 2px 14px;
     }
     #save {
-        margin-top: 8rem;
+        margin-top: 6rem;
     }
     .modtitle {
         margin-top: 2.5rem;
@@ -444,7 +453,13 @@ svg {
         margin-top: 2rem;
     } */
     .footer {
-        margin-top: 4rem;
+        margin-top: 2rem;
+    }
+    svg {
+        margin-left: 1.5rem;
+    }
+    .header {
+        margin-top: 1.5rem;
     }
 }
 
@@ -454,7 +469,14 @@ svg {
 
 /* Portrait and Landscape */
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {}
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* svg {
+        margin-left: 0.5rem;
+    } */
+    .footer {
+        margin-top: 4rem;
+    }
+}
 
 
 /* Portrait */
@@ -503,24 +525,22 @@ svg {
         margin-left: 2.5rem;
         margin-right: 2.5rem;
     }
-    .piechart1 {
-        width: 6.5rem;
-        height: 6.5rem;
-    }
-    .piechart2 {
-        width: 6.5rem;
-        height: 6.5rem;
-    }
-    .piechart3 {
-        width: 6.5rem;
-        height: 6.5rem;
-    }
-    .piechart4 {
-        width: 6.5rem;
-        height: 6.5rem;
-    }
     .footer {
         font-size: 16px;
+        margin-top: 2rem;
+    }
+    #day-percentage,
+    #month-percentage,
+    #year-percentage,
+    #life-percentage {
+        font-size: 62px;
+        margin-top: 4rem;
+    }
+    .header {
+        margin-top: 2rem;
+    }
+    svg {
+        margin-right: 2rem;
     }
 }
 
@@ -574,23 +594,10 @@ svg {
         margin-left: 2.5rem;
         margin-right: 2.5rem;
     }
-    .piechart1 {
-        width: 7rem;
-        height: 7rem;
-    }
-    .piechart2 {
-        width: 7rem;
-        height: 7rem;
-    }
-    .piechart3 {
-        width: 7rem;
-        height: 7rem;
-    }
-    .piechart4 {
-        width: 7rem;
-        height: 7rem;
-    }
     .footer {
         font-size: 16px;
+    }
+    svg {
+        margin-right: 2rem;
     }
 }

@@ -436,9 +436,9 @@ function buildChart(userSlice, leftoverSlice, pieChartSelector) {
 
 function buildLandscapeChart(userSlice, leftoverSlice, pieChartSelector) {
     // set the dimensions and margins of the graph
-    var width = 50
-    height = 50
-    margin = 40
+    var width = 75
+    height = 75
+    margin = 2
 
     // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
     var radius = Math.min(width, height) / 2 - margin
@@ -476,7 +476,7 @@ function buildLandscapeChart(userSlice, leftoverSlice, pieChartSelector) {
         )
         .attr('fill', function(d) { return (color(d.data.key)) })
         .attr("stroke", "black")
-        .style("stroke-width", "4px")
+        .style("stroke-width", "3px")
         .style("opacity", 0.7)
 
 }
