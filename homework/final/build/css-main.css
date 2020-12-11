@@ -23,7 +23,6 @@ p {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 12px;
-    margin-top: 1.2rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
@@ -57,7 +56,7 @@ p {
 .motto {
     text-align: center;
     font-size: 0.65rem;
-    margin-top: 1.6rem;
+    /* margin-top: 1.2rem; */
 }
 
 .footer {
@@ -238,7 +237,7 @@ button {
     border-radius: 12px;
     padding: 2px 14px;
     box-shadow: 3px 3px black;
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: block;
     position: relative;
 }
@@ -247,7 +246,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1.5rem;
+    margin: 1rem;
 }
 
 .pieme {
@@ -295,6 +294,7 @@ button {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    padding: 5px 20px;
 }
 
 .options {
@@ -317,7 +317,7 @@ button {
     border-radius: 12px;
     padding: 2px 14px;
     box-shadow: 3px 3px black;
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: inline-block;
     justify-content: center;
 }
@@ -362,7 +362,7 @@ label {
     font-size: 52px;
     font-weight: 700;
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
 }
 
 .smpercentage {
@@ -375,6 +375,10 @@ label {
     text-align: center;
     font-size: 18px;
     margin-top: 5rem;
+}
+
+svg {
+    margin-left: 2rem;
 }
 
 @media only screen and (orientation:portrait) {
@@ -415,10 +419,13 @@ label {
     }
     .buttons {
         margin: 0.5rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        /* margin-left: 1rem;
+        margin-right: 1rem; */
     }
     .active {
+        padding: 2px 14px;
+    }
+    .button {
         padding: 2px 14px;
     }
     #save {
@@ -457,18 +464,34 @@ label {
         margin-top: 3.5rem;
     }
     .motto {
-        margin-top: 3.5rem;
+        margin-top: 4rem;
         font-size: 12px;
     }
     .pieme {
         margin-top: 2rem;
     }
     .buttons {
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
     #save {
         margin-top: 6rem;
+    }
+    svg {
+        margin-left: 3.5rem;
+    }
+    .button {
+        padding: 4px 16px;
+    }
+    .active {
+        padding: 4px 16px;
+    }
+    #day-percentage,
+    #month-percentage,
+    #year-percentage,
+    #life-percentage {
+        font-size: 56px;
+        margin-top: 1.5rem;
     }
 }
 
@@ -515,13 +538,27 @@ label {
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
     .motto {
         font-size: 16px;
-        margin-top: 8rem;
+        margin-top: 6rem;
     }
     #save {
         margin-top: 4rem;
     }
     .pieme {
         margin-top: 4rem;
+    }
+    svg {
+        margin-left: 4.5rem;
+    }
+    .buttons {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+    }
+    #day-percentage,
+    #month-percentage,
+    #year-percentage,
+    #life-percentage {
+        font-size: 62px;
+        margin-top: 2rem;
     }
 }
 

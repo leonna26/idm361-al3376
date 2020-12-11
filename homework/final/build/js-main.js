@@ -142,103 +142,6 @@ function addDisplay() {
     }
 }
 
-// CALCULATING AGE FROM DOB
-
-function myAgeValidation() {
-
-    var lre = /^\s*/;
-    var datemsg = "";
-
-    var inputDate = document.dobcode.myDate.value;
-    inputDate = inputDate.replace(lre, "");
-    document.dobcode.myDate.value = inputDate;
-    datemsg = isValidDate(inputDate);
-    if (datemsg != "") {
-        alert(datemsg);
-        return;
-    } else {
-        //Now find the Age based on the Birth Date
-        getAge(new Date(inputDate));
-    }
-
-}
-
-function getAge(birth) {
-
-    var today = new Date();
-    var nowyear = today.getFullYear();
-    var nowmonth = today.getMonth();
-    var nowday = today.getDate();
-
-    var birthyear = birth.getFullYear();
-    var birthmonth = birth.getMonth();
-    var birthday = birth.getDate();
-
-    var age = nowyear - birthyear;
-    var age_month = nowmonth - birthmonth;
-    var age_day = nowday - birthday;
-
-    if (age_month < 0 || (age_month == 0 && age_day < 0)) {
-        age = parseInt(age) - 1;
-    }
-    alert(age);
-
-}
-
-function isValidDate(dateStr) {
-
-
-    var msg = "";
-    // Checks for the following valid date formats:
-    // MM/DD/YY   MM/DD/YYYY   MM-DD-YY   MM-DD-YYYY
-    // Also separates date into month, day, and year variables
-
-    // To require a 2 & 4 digit year entry, use this line instead:
-    //var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{2}|\d{4})$/;
-    // To require a 4 digit year entry, use this line instead:
-    var datePat = /^(\d{1,2})(\/|-)(\d{1,2})\2(\d{4})$/;
-
-    var matchArray = dateStr.match(datePat); // is the format ok?
-    if (matchArray == null) {
-        msg = "Date is not in a valid format.";
-        return msg;
-    }
-
-    month = matchArray[1]; // parse date into variables
-    day = matchArray[3];
-    year = matchArray[4];
-
-
-    if (month < 1 || month > 12) { // check month range
-        msg = "Month must be between 1 and 12.";
-        return msg;
-    }
-
-    if (day < 1 || day > 31) {
-        msg = "Day must be between 1 and 31.";
-        return msg;
-    }
-
-    if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
-        msg = "Month " + month + " doesn't have 31 days!";
-        return msg;
-    }
-
-    if (month == 2) { // check for february 29th
-        var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-        if (day > 29 || (day == 29 && !isleap)) {
-            msg = "February " + year + " doesn't have " + day + " days!";
-            return msg;
-        }
-    }
-
-    if (day.charAt(0) == '0') day = day.charAt(1);
-
-    //Incase you need the value in CCYYMMDD format in your server program
-    //msg = (parseInt(year,10) * 10000) + (parseInt(month,10) * 100) + parseInt(day,10);
-
-    return msg; // date is valid
-}
 
 // CALCULATE PERCENTAGES
 
@@ -316,26 +219,55 @@ function render() {
 
     var dayPercentageNum = getDayPercentage().toFixed(0);
     if (dayPercentageNum > 0 && (100 - dayPercentageNum) > 0) {
+
+        let portraitPieChart = document.querySelector("#day-modal .piechart>*");
+        portraitPieChart ? portraitPieChart.remove() : false
         buildChart(dayPercentageNum, 100 - dayPercentageNum, "#day-modal .piechart");
+
+
+        let landscapePieChart = document.querySelector("#day-percentage-landscape>*")
+        landscapePieChart ? landscapePieChart.remove() : false
         buildChart(dayPercentageNum, 100 - dayPercentageNum, "#day-percentage-landscape");
     }
 
     var monthPercentageNum = getMonthPercentage().toFixed(0);
     if (monthPercentageNum > 0 && (100 - monthPercentageNum) > 0) {
+
+        let portraitPieChart = document.querySelector("#month-modal .piechart>*");
+        portraitPieChart ? portraitPieChart.remove() : false
         buildChart(monthPercentageNum, 100 - monthPercentageNum, "#month-modal .piechart");
-        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#month-percentage-landscape");
+
+
+        let landscapePieChart = document.querySelector("#month-percentage-landscape>*")
+        landscapePieChart ? landscapePieChart.remove() : false
+        buildChart(monthPercentageNum, 100 - monthPercentageNum, "#month-percentage-landscape");
     }
 
     var yearPercentageNum = getYearPercentage().toFixed(0);
     if (yearPercentageNum > 0 && (100 - yearPercentageNum) > 0) {
+
+        let portraitPieChart = document.querySelector("#year-modal .piechart>*");
+        portraitPieChart ? portraitPieChart.remove() : false
         buildChart(yearPercentageNum, 100 - yearPercentageNum, "#year-modal .piechart");
-        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#year-percentage-landscape");
+
+
+        let landscapePieChart = document.querySelector("#year-percentage-landscape>*")
+        landscapePieChart ? landscapePieChart.remove() : false
+        buildChart(yearPercentageNum, 100 - yearPercentageNum, "#year-percentage-landscape");
     }
 
     var lifePercentageNum = getLifePercentage().toFixed(0);
     if (lifePercentageNum > 0 && (100 - lifePercentageNum) > 0) {
+
+
+        let portraitPieChart = document.querySelector("#life-modal .piechart>*");
+        portraitPieChart ? portraitPieChart.remove() : false
         buildChart(lifePercentageNum, 100 - lifePercentageNum, "#life-modal .piechart");
-        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#life-percentage-landscape");
+
+
+        let landscapePieChart = document.querySelector("#life-percentage-landscape>*")
+        landscapePieChart ? landscapePieChart.remove() : false
+        buildChart(lifePercentageNum, 100 - lifePercentageNum, "#life-percentage-landscape");
     }
 
     yearPercentage.innerHTML = '' + getYearPercentage().toFixed(0) + '%';
@@ -357,7 +289,6 @@ function render() {
 
 
 }
-
 
 
 
@@ -498,7 +429,59 @@ function buildChart(userSlice, leftoverSlice, pieChartSelector) {
         )
         .attr('fill', function(d) { return (color(d.data.key)) })
         .attr("stroke", "black")
-        .style("stroke-width", "3px")
+        .style("stroke-width", "4px")
         .style("opacity", 0.7)
 
+}
+
+
+// local storage
+var ageArray = new Array();
+var quantityArray = new Array();
+var mainNdx = 0;
+
+function readData() {
+    console.log("data called");
+    if (typeof(Storage) !== "undefined") {
+        ageStr = localStorage.your_Age;
+        quantityStr = localStorage.your_LifeExpectancy;
+        ndxStr = localStorage.your_Ndx;
+
+        console.log("ageStr is " + ageStr);
+        console.log("quantityStr is " + quantityStr);
+        console.log("ndxStr is " + ndxStr);
+
+        if (typeof(ageStr) !== "undefined") {
+            ageArray = ageStr.split(",");
+            quantityArray = quantityStr.split(",");
+            mainNdx = parseInt(ndxStr);
+            age.value = ageArray[mainNdx];
+            quantity.value = quantityArray[mainNdx];
+            ndx_result.value = mainNdx;
+        } else {
+            age.value = 0;
+            quantity.value = 0;
+            mainNdx.value = 0;
+        }
+    } else {
+        alert('Sorry, this browser does not support local storage');
+    }
+}
+
+function writeData() {
+    console.log("write data called");
+    if (typeof(Storage) !== "undefined") {
+        ageArray.push(age.value);
+        quantityArray.push(quantity.value);
+        ageStr = ageArray.join();
+        quantityStr = quantityArray.join();
+
+        localStorage.your_Age = ageStr;
+        localStorage.your_LifeExpectancy;
+        localStorage.your_Ndx;
+
+        ndx_result.value = mainNdx;
+    } else {
+        alert('Sorry, this browser does not support local storage')
+    }
 }
