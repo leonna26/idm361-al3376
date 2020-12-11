@@ -227,7 +227,7 @@ function render() {
 
         let landscapePieChart = document.querySelector("#day-percentage-landscape>*")
         landscapePieChart ? landscapePieChart.remove() : false
-        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#day-percentage-landscape");
+        buildLandscapeChart(dayPercentageNum, 100 - dayPercentageNum, "#day-percentage-landscape");
     }
 
     var monthPercentageNum = getMonthPercentage().toFixed(0);
@@ -240,7 +240,7 @@ function render() {
 
         let landscapePieChart = document.querySelector("#month-percentage-landscape>*")
         landscapePieChart ? landscapePieChart.remove() : false
-        buildChart(monthPercentageNum, 100 - monthPercentageNum, "#month-percentage-landscape");
+        buildLandscapeChart(monthPercentageNum, 100 - monthPercentageNum, "#month-percentage-landscape");
     }
 
     var yearPercentageNum = getYearPercentage().toFixed(0);
@@ -253,7 +253,7 @@ function render() {
 
         let landscapePieChart = document.querySelector("#year-percentage-landscape>*")
         landscapePieChart ? landscapePieChart.remove() : false
-        buildChart(yearPercentageNum, 100 - yearPercentageNum, "#year-percentage-landscape");
+        buildLandscapeChart(yearPercentageNum, 100 - yearPercentageNum, "#year-percentage-landscape");
     }
 
     var lifePercentageNum = getLifePercentage().toFixed(0);
@@ -267,7 +267,7 @@ function render() {
 
         let landscapePieChart = document.querySelector("#life-percentage-landscape>*")
         landscapePieChart ? landscapePieChart.remove() : false
-        buildChart(lifePercentageNum, 100 - lifePercentageNum, "#life-percentage-landscape");
+        buildLandscapeChart(lifePercentageNum, 100 - lifePercentageNum, "#life-percentage-landscape");
     }
 
     yearPercentage.innerHTML = '' + getYearPercentage().toFixed(0) + '%';
@@ -433,6 +433,55 @@ function buildChart(userSlice, leftoverSlice, pieChartSelector) {
         .style("opacity", 0.7)
 
 }
+
+function buildLandscapeChart(userSlice, leftoverSlice, pieChartSelector) {
+    // set the dimensions and margins of the graph
+    var width = 50
+    height = 50
+    margin = 40
+
+    // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+    var radius = Math.min(width, height) / 2 - margin
+
+    // append the svg object to the div called 'my_dataviz'
+    var svg = d3.select(pieChartSelector)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    // Create dummy data
+    var data = { a: userSlice, b: leftoverSlice }
+
+    // set the color scale
+    var color = d3.scaleOrdinal()
+        .domain(data)
+        .range(["#FCCFCF", "#FFF9E4", "#7b6888", "#6b486b", "#a05d56"])
+
+    // Compute the position of each group on the pie:
+    var pie = d3.pie()
+        .value(function(d) { return d.value; })
+    var data_ready = pie(d3.entries(data))
+
+    // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+    svg
+        .selectAll('whatever')
+        .data(data_ready)
+        .enter()
+        .append('path')
+        .attr('d', d3.arc()
+            .innerRadius(0)
+            .outerRadius(radius)
+        )
+        .attr('fill', function(d) { return (color(d.data.key)) })
+        .attr("stroke", "black")
+        .style("stroke-width", "4px")
+        .style("opacity", 0.7)
+
+}
+
+
 
 
 // local storage
