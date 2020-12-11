@@ -82,7 +82,8 @@ p {
     width: 100%;
 }
 
-.piechart {
+
+/* .piechart {
     margin: auto;
     margin-top: 2rem;
     display: block;
@@ -93,7 +94,7 @@ p {
     background-image: conic-gradient( #FFF9E4 83deg, #FCCFCF 17deg);
     border: 3px solid black;
     box-shadow: 3px 3px black;
-}
+} */
 
 .piechart1 {
     margin: auto;

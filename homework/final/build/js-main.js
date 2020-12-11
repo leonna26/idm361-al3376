@@ -21,6 +21,7 @@ span.onclick = function() {
 
 save.onclick = function() {
     modal.style.display = "none";
+    render();
 }
 
 
@@ -307,16 +308,45 @@ function getLifePercentage() {
 
 
 function render() {
-    yearPercentage.innerHTML = '' + getYearPercentage().toFixed(0) + '%';
-    //  */ // progressBar.value = Math.floor(getYearPercentage());
-
-    dayPercentage.innerHTML = '' + getDayPercentage().toFixed(0) + '%';
-    // dayProgressBar.value = Math.floor(getDayPercentage());
-    monthPercentage.innerHTML = '' + getMonthPercentage().toFixed(0) + '%';
-
-    lifePercentage.innerHTML = '' + getLifePercentage().toFixed(0) + '%';
-    //  */ // lifeProgressBar.value = Math.floor(getLifePercentage());
+    dayPercentageLandscape.innerHTML = '' + getDayPercentageLandscape().toFixed(0) + '%';
+    monthPercentageLandscape.innerHTML = '' + getMonthPercentageLandscape().toFixed(0) + '%';
     yearPercentageLandscape.innerHTML = '' + getYearPercentageLandscape().toFixed(0) + '%';
+    lifePercentageLandscape.innerHTML = '' + getLifePercentageLandscape().toFixed(0) + '%';
+
+
+    var dayPercentageNum = getDayPercentage().toFixed(0);
+    if (dayPercentageNum > 0 && (100 - dayPercentageNum) > 0) {
+        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#day-modal .piechart");
+        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#day-percentage-landscape");
+    }
+
+    var monthPercentageNum = getMonthPercentage().toFixed(0);
+    if (monthPercentageNum > 0 && (100 - monthPercentageNum) > 0) {
+        buildChart(monthPercentageNum, 100 - monthPercentageNum, "#month-modal .piechart");
+        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#month-percentage-landscape");
+    }
+
+    var yearPercentageNum = getYearPercentage().toFixed(0);
+    if (yearPercentageNum > 0 && (100 - yearPercentageNum) > 0) {
+        buildChart(yearPercentageNum, 100 - yearPercentageNum, "#year-modal .piechart");
+        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#year-percentage-landscape");
+    }
+
+    var lifePercentageNum = getLifePercentage().toFixed(0);
+    if (lifePercentageNum > 0 && (100 - lifePercentageNum) > 0) {
+        buildChart(lifePercentageNum, 100 - lifePercentageNum, "#life-modal .piechart");
+        buildChart(dayPercentageNum, 100 - dayPercentageNum, "#life-percentage-landscape");
+    }
+
+    yearPercentage.innerHTML = '' + getYearPercentage().toFixed(0) + '%';
+    var yearPercentageNum = getYearPercentage().toFixed(0);
+    var yearPercentageRemain = (100 - yearPercentageNum);
+    if (yearPercentageNum > 0 && yearPercentageRemain > 0) {
+        buildChart(yearPercentageNum, yearPercentageRemain);
+    }
+    dayPercentage.innerHTML = '' + getDayPercentage().toFixed(0) + '%';
+    monthPercentage.innerHTML = '' + getMonthPercentage().toFixed(0) + '%';
+    lifePercentage.innerHTML = '' + getLifePercentage().toFixed(0) + '%';
     var lifePercentageNum = getLifePercentage().toFixed(0);
     console.log("life percentage is equal to " + lifePercentageNum);
     var percentageRemainNum = (100 - lifePercentageNum);
@@ -325,14 +355,7 @@ function render() {
         buildChart(lifePercentageNum, percentageRemainNum);
     }
 
-    //  */ // progressBar.value = Math.floor(getYearPercentage());
 
-    dayPercentageLandscape.innerHTML = '' + getDayPercentageLandscape().toFixed(0) + '%';
-    // dayProgressBar.value = Math.floor(getDayPercentage());
-    monthPercentageLandscape.innerHTML = '' + getMonthPercentageLandscape().toFixed(0) + '%';
-
-    lifePercentageLandscape.innerHTML = '' + getLifePercentageLandscape().toFixed(0) + '%';
-    //  */ // lifeProgressBar.value = Math.floor(getLifePercentage());
 }
 
 
@@ -425,25 +448,25 @@ function getDaysInMonth(month, year) {
 
 
 
-function start() {
+/* function start() {
     setInterval(function() { render(); }, );
 }
 
-start();
+start(); */
 
 // buildChart(40, 60);
 
-function buildChart(userSlice, leftoverSlice) {
+function buildChart(userSlice, leftoverSlice, pieChartSelector) {
     // set the dimensions and margins of the graph
-    var width = 320
-    height = 320
+    var width = 250
+    height = 250
     margin = 40
 
     // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
     var radius = Math.min(width, height) / 2 - margin
 
     // append the svg object to the div called 'my_dataviz'
-    var svg = d3.select("#my_dataviz")
+    var svg = d3.select(pieChartSelector)
         .append("svg")
         .attr("width", width)
         .attr("height", height)
@@ -456,7 +479,7 @@ function buildChart(userSlice, leftoverSlice) {
     // set the color scale
     var color = d3.scaleOrdinal()
         .domain(data)
-        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"])
+        .range(["#FCCFCF", "#FFF9E4", "#7b6888", "#6b486b", "#a05d56"])
 
     // Compute the position of each group on the pie:
     var pie = d3.pie()
@@ -475,7 +498,7 @@ function buildChart(userSlice, leftoverSlice) {
         )
         .attr('fill', function(d) { return (color(d.data.key)) })
         .attr("stroke", "black")
-        .style("stroke-width", "2px")
+        .style("stroke-width", "3px")
         .style("opacity", 0.7)
 
 }
