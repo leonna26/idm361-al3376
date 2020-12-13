@@ -21,6 +21,7 @@ span.onclick = function() {
 
 save.onclick = function() {
     modal.style.display = "none";
+    writeData();
     render();
 }
 
@@ -485,52 +486,34 @@ function buildLandscapeChart(userSlice, leftoverSlice, pieChartSelector) {
 
 
 // local storage
-var ageArray = new Array();
-var quantityArray = new Array();
-var mainNdx = 0;
+
+
+var localStorage = window.localStorage;
 
 function readData() {
     console.log("data called");
-    if (typeof(Storage) !== "undefined") {
-        ageStr = localStorage.your_Age;
-        quantityStr = localStorage.your_LifeExpectancy;
-        ndxStr = localStorage.your_Ndx;
-
-        console.log("ageStr is " + ageStr);
-        console.log("quantityStr is " + quantityStr);
-        console.log("ndxStr is " + ndxStr);
-
-        if (typeof(ageStr) !== "undefined") {
-            ageArray = ageStr.split(",");
-            quantityArray = quantityStr.split(",");
-            mainNdx = parseInt(ndxStr);
-            age.value = ageArray[mainNdx];
-            quantity.value = quantityArray[mainNdx];
-            ndx_result.value = mainNdx;
-        } else {
-            age.value = 0;
-            quantity.value = 0;
-            mainNdx.value = 0;
-        }
-    } else {
+    if (typeof(Storage) === "undefined") {
         alert('Sorry, this browser does not support local storage');
+        return
     }
+
+    var age = 0;
+    var quantity = 0;
+    ageValue = localStorage.getItem('your_Age');
+    quantityValue = localStorage.getItem('your_LifeExpectancy');
+
+
+    ageInput.value = ageValue;
+    lifeExpectancy.value = quantityValue;
+
 }
 
 function writeData() {
     console.log("write data called");
-    if (typeof(Storage) !== "undefined") {
-        ageArray.push(age.value);
-        quantityArray.push(quantity.value);
-        ageStr = ageArray.join();
-        quantityStr = quantityArray.join();
-
-        localStorage.your_Age = ageStr;
-        localStorage.your_LifeExpectancy;
-        localStorage.your_Ndx;
-
-        ndx_result.value = mainNdx;
-    } else {
+    if (typeof(Storage) == "undefined") {
         alert('Sorry, this browser does not support local storage')
     }
+
+    localStorage.setItem('your_Age', ageInput.value);
+    localStorage.setItem('your_LifeExpectancy', lifeExpectancy.value);
 }
